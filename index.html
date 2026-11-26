@@ -3,23 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SubHaven — Privacy Policy</title>
+  <title>Privacy Policy – SubHaven</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 680px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1e293b; }
-    h1 { color: #0f172a; }
-    .badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 14px; }
+    :root {
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #0284c7;
+      --pill-bg: #e0f2fe;
+      --pill-text: #0369a1;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #080a0f;
+        --card: #121620;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --border: #222938;
+        --accent: #38bdf8;
+        --pill-bg: rgba(56, 189, 248, 0.15);
+        --pill-text: #38bdf8;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 28px 16px 56px;
+      line-height: 1.65;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .brand { font-weight: 800; font-size: 18px; letter-spacing: -0.3px; }
+    .langs { display: flex; gap: 6px; }
+    .langs button {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .langs button.active {
+      background: var(--accent);
+      color: #080a0f;
+      border-color: var(--accent);
+    }
+    .meta {
+      display: inline-block;
+      background: var(--pill-bg);
+      color: var(--pill-text);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    h1 { font-size: 26px; margin: 6px 0 8px; letter-spacing: -0.5px; }
+    h2 { font-size: 18px; margin: 24px 0 8px; color: var(--accent); }
+    p { margin: 0 0 12px; color: var(--muted); }
+    a { color: var(--accent); font-weight: 600; text-decoration: none; }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy for SubHaven</h1>
-  <p class="badge">Developer: UKxTrauma • Last Updated: November 2026</p>
-  <h2>1. Zero Data Collection</h2>
-  <p>SubHaven is a 100% offline utility. The app does not request the Android INTERNET permission, operates no backend servers, and does not collect, transmit, or share any personal or financial data.</p>
-  <h2>2. Local On-Device Storage</h2>
-  <p>All subscription entries, free-trial dates, and preferences are stored strictly locally on your device. If you export a PDF, CSV, or JSON backup, that file is created locally and shared only where you explicitly choose.</p>
-  <h2>3. In-App Purchases</h2>
-  <p>Optional lifetime Pro upgrades are processed directly by Google Play Billing on your device. SubHaven never receives your payment details.</p>
-  <h2>4. Contact</h2>
-  <p>For support or privacy inquiries, contact UKxTrauma via the developer contact email listed on the SubHaven Google Play Store page.</p>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">Privacy Policy – SubHaven</div>
+      <div class="langs">
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+        <button onclick="setLang('es')" id="btn-es">ES</button>
+        <button onclick="setLang('fr')" id="btn-fr">FR</button>
+        <button onclick="setLang('de')" id="btn-de">DE</button>
+      </div>
+    </div>
+    <div class="meta" id="meta"></div>
+    <h1 id="title"></h1>
+    <div id="content"></div>
+  </div>
+  <script>
+    const copy = {
+      en: {
+        meta: "Effective Date: 26 November 2026 • Developer: UKxTrauma • Contact: petplannerauth@gmail.com",
+        title: "Privacy Policy for SubHaven",
+        sections: [
+          ["1. Zero Data Collection", "SubHaven is a 100% offline utility. The app does not request the Android INTERNET permission, operates no cloud servers, and does not collect, transmit, or share any personal or financial data."],
+          ["2. Local On-Device Storage", "All subscription entries, free-trial dates, email tags, and app preferences are stored strictly locally on your device. Optional PDF, CSV, or JSON backups are generated on-device and shared only where you explicitly choose."],
+          ["3. In-App Purchases & Refunds", "Optional lifetime Pro upgrades are processed securely by Google Play Billing on your device. SubHaven never sees or stores your payment details. Refund requests are handled directly through Google Play's standard refund policy, or you may contact us for assistance."],
+          ["4. Contact & Support", "For support, refund inquiries, or privacy questions, contact UKxTrauma at <a href='mailto:petplannerauth@gmail.com'>petplannerauth@gmail.com</a>."]
+        ]
+      },
+      es: {
+        meta: "Fecha de entrada en vigor: 26 de noviembre de 2026 • Desarrollador: UKxTrauma • Contacto: petplannerauth@gmail.com",
+        title: "Política de Privacidad de SubHaven",
+        sections: [
+          ["1. Cero Recopilación de Datos", "SubHaven es una utilidad 100% sin conexión. La aplicación no solicita permiso de INTERNET en Android, no utiliza servidores en la nube y no recopila, transmite ni comparte datos personales o financieros."],
+          ["2. Almacenamiento Local en el Dispositivo", "Todas las suscripciones, fechas de prueba, etiquetas y preferencias se guardan estrictamente en tu dispositivo. Las copias PDF, CSV o JSON se crean localmente solo cuando tú las exportas."],
+          ["3. Compras Integradas y Reembolsos", "Las actualizaciones opcionales a Pro Vitalicio se procesan mediante Google Play Billing. SubHaven nunca recibe tus datos de pago. Los reembolsos se gestionan a través de Google Play o escribiéndonos para recibir ayuda."],
+          ["4. Contacto y Soporte", "Para soporte o consultas sobre privacidad, escribe a UKxTrauma a <a href='mailto:petplannerauth@gmail.com'>petplannerauth@gmail.com</a>."]
+        ]
+      },
+      fr: {
+        meta: "Date d'effet : 26 novembre 2026 • Développeur : UKxTrauma • Contact : petplannerauth@gmail.com",
+        title: "Politique de Confidentialité de SubHaven",
+        sections: [
+          ["1. Aucune Collecte de Données", "SubHaven est un utilitaire 100% hors ligne. L’application ne demande aucune permission INTERNET sur Android, n’utilise aucun serveur et ne collecte ni ne partage aucune donnée personnelle ou financière."],
+          ["2. Stockage Local sur l’Appareil", "Tous vos abonnements, dates d’essai, libellés et préférences restent strictement sur votre appareil. Les exports PDF, CSV ou JSON sont générés localement selon votre choix."],
+          ["3. Achats Intégrés et Remboursements", "La mise à niveau optionnelle Pro à Vie est gérée par Google Play Billing. SubHaven ne reçoit jamais vos informations de paiement. Les remboursements suivent la politique standard de Google Play."],
+          ["4. Contact et Support", "Pour toute question ou demande d’assistance, contactez UKxTrauma à <a href='mailto:petplannerauth@gmail.com'>petplannerauth@gmail.com</a>."]
+        ]
+      },
+      de: {
+        meta: "Gültig ab: 26. November 2026 • Entwickler: UKxTrauma • Kontakt: petplannerauth@gmail.com",
+        title: "Datenschutzerklärung für SubHaven",
+        sections: [
+          ["1. Keine Datenerhebung", "SubHaven ist eine 100% Offline-App. Die App fordert keine Android-INTERNET-Berechtigung an, betreibt keine Cloud-Server und erhebt, überträgt oder teilt keinerlei persönliche oder finanzielle Daten."],
+          ["2. Lokale Speicherung auf dem Gerät", "Alle Abos, Testdaten, Tags und Einstellungen bleiben ausschließlich lokal auf deinem Gerät. PDF-, CSV- oder JSON-Exporte werden nur lokal erstellt, wenn du sie ausdrücklich teilst."],
+          ["3. In-App-Käufe & Rückerstattungen", "Optionale lebenslange Pro-Upgrades werden über Google Play Billing abgewickelt. SubHaven erhält niemals deine Zahlungsdaten. Rückerstattungen erfolgen gemäß den Richtlinien von Google Play."],
+          ["4. Kontakt & Support", "Bei Fragen oder Support-Anliegen kontaktiere UKxTrauma unter <a href='mailto:petplannerauth@gmail.com'>petplannerauth@gmail.com</a>."]
+        ]
+      }
+    };
+
+    function setLang(l) {
+      const lang = copy[l] ? l : "en";
+      document.documentElement.lang = lang;
+      document.getElementById("meta").textContent = copy[lang].meta;
+      document.getElementById("title").textContent = copy[lang].title;
+      document.getElementById("content").innerHTML = copy[lang].sections
+        .map(([h, p]) => `<h2>${h}</h2><p>${p}</p>`).join("");
+      ["en","es","fr","de"].forEach(k => {
+        document.getElementById("btn-" + k).classList.toggle("active", k === lang);
+      });
+    }
+
+    const browserLang = (navigator.language || "en").slice(0, 2).toLowerCase();
+    setLang(browserLang);
+  </script>
 </body>
 </html>
